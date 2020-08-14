@@ -1,0 +1,4 @@
+celery==4.4.7
+Flask==1.1.2
+python-dotenv==0.14.0
+redis==3.5.3
