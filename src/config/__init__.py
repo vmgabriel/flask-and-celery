@@ -27,6 +27,10 @@ class Config(object):
 class DevelopmentConfig(Config):
     """Development Configuration"""
     DEBUG = True
+    CELERY_RESULT_BACKEND = os.getenv(
+        "CELERY_RESULT_BACKEND", "redis://localhost:6379/0"
+    )
+    CELERY_SEND_SENT_EVENT = True
 
 
 class ProductionConfig(Config):

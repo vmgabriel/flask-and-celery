@@ -4,7 +4,6 @@ App Start
 
 # Libraries
 from flask import Flask
-from celery import Celery
 
 # Configuration
 from src.config import config
@@ -12,8 +11,8 @@ from src.config import config
 # Register Protocols
 from src.protocols import register_http
 
-# Const
-celery = Celery()
+# Extension
+from src.extensions import register_extensions
 
 
 def create_app():
@@ -35,8 +34,3 @@ def create_worker_app():
     register_extensions(app)
 
     return app
-
-
-def register_extensions(app):
-    """Register and Get Configs"""
-    celery.config_from_object(app.config)
